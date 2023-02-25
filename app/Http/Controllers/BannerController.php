@@ -28,12 +28,12 @@ class BannerController extends Controller
 
     public function insert(Request $request)
     {
-        // $request->validate([
-        //     'nama_banner' => 'required',
-        //     'gambar_banner' => 'required|image|file|max:2048',
-        //     'position' => 'required',
-        //     'status_publish' => 'required'
-        // ]);
+        $request->validate([
+            'nama_banner' => 'required',
+            'gambar_banner' => 'required|image|file|max:2048',
+            'position' => 'required',
+            'status_publish' => 'required'
+        ]);
 
         try {
             // upload file

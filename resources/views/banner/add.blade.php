@@ -47,7 +47,7 @@
                             <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-2 col-form-label">Gambar Banner</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="file" name="gambar_banner" id="formFile">
+                                    <input class="form-control @error('gambar_banner') is-invalid @enderror" type="file" name="gambar_banner" id="formFile">
                                     {{-- tampilkan pesan jika ada error --}}
                                     @error('gambar_banner')
                                         <span class="invalid-feedback" role="alert">
@@ -58,23 +58,36 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="inputRole" class="col-sm-2 col-form-label">Status</label>
+                                <label for="inputRole" class="col-sm-2 col-form-label">Posisi</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" name="position" id="inputRole">
-                                        <option value="Top">Top</option>
-                                        <option value="Middle">Middle</option>
-                                        <option value="Bottom">Bottom</option>
+                                    <select class="form-control @error('position') is-invalid @enderror" name="position" id="position">
+                                        <option value="">--Select--</option>
+                                        <option {{ old('position') == "Top" ? "selected" : ""}} value="Top">Top</option>
+                                        <option {{ old('position') == "Middle" ? "selected" : ""}}  value="Middle">Middle</option>
+                                        <option {{ old('position') == "Bottom" ? "selected" : ""}}  value="Bottom">Bottom</option>
                                     </select>
+                                    {{-- tampilkan pesan jika ada error --}}
+                                    @error('position')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="inputRole" class="col-sm-2 col-form-label">Status</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" name="status_publish" id="inputRole">
-                                        <option value="1">Publish</option>
-                                        <option value="0">Not Publish</option>
+                                    <select class="form-control @error('status_publish') is-invalid @enderror" name="status_publish" id="status_publish">
+                                        <option value="">--Select--</option>
+                                        <option {{ old('status_publish') == "1" ? "selected" : ""}} value="1">Publish</option>
+                                        <option {{ old('status_publish') == "0" ? "selected" : ""}} value="0">Not Publish</option>
                                     </select>
+                                    @error('status_publish')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
 

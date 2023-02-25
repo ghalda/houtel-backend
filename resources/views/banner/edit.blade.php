@@ -63,6 +63,7 @@
                                 <label for="inputRole" class="col-sm-2 col-form-label">Posisi Banner</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="position" id="inputRole">
+                                        <option value="">Select</option>
                                         <option value="Top" {{ $data->position == 'Top' ? 'selected' : '' }} >Top</option>
                                         <option value="Middle" {{ $data->position == 'Middle' ? 'selected' : '' }}>Middle</option>
                                         <option value="Bottom" {{ $data->position == 'Bottom' ? 'selected' : '' }}>Bottom</option>
@@ -74,6 +75,7 @@
                                 <label for="inputRole" class="col-sm-2 col-form-label">Status</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="status_publish" id="inputRole">
+                                        <option value="">Select</option>
                                         <option value="1" {{ $data->status_publish == '1' ? 'selected' : '' }} >Publish</option>
                                         <option value="0" {{ $data->status_publish == '0' ? 'selected' : '' }}>Not Publish</option>
                                     </select>
