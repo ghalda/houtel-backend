@@ -63,11 +63,17 @@
                                 <label for="inputRole" class="col-sm-2 col-form-label">Posisi Banner</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="position" id="inputRole">
-                                        <option value="">Select</option>
-                                        <option value="Top" {{ $data->position == 'Top' ? 'selected' : '' }} >Top</option>
-                                        <option value="Middle" {{ $data->position == 'Middle' ? 'selected' : '' }}>Middle</option>
-                                        <option value="Bottom" {{ $data->position == 'Bottom' ? 'selected' : '' }}>Bottom</option>
+                                        <option value="">--Select--</option>
+                                        <option value="Top" {{ old('position', $data->position) == 'Top' ? 'selected' : '' }} >Top</option>
+                                        <option value="Middle" {{ old('position', $data->position) == 'Middle' ? 'selected' : '' }}>Middle</option>
+                                        <option value="Bottom" {{ old('position', $data->position) == 'Bottom' ? 'selected' : '' }}>Bottom</option>
                                     </select>
+                                    {{-- tampilkan pesan jika ada error --}}
+                                    @error('position')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -76,9 +82,15 @@
                                 <div class="col-sm-10">
                                     <select class="form-control" name="status_publish" id="inputRole">
                                         <option value="">Select</option>
-                                        <option value="1" {{ $data->status_publish == '1' ? 'selected' : '' }} >Publish</option>
-                                        <option value="0" {{ $data->status_publish == '0' ? 'selected' : '' }}>Not Publish</option>
+                                        <option value="1" {{ old('status_publish', $data->status_publish) == '1' ? 'selected' : '' }} >Publish</option>
+                                        <option value="0" {{ old('status_publish', $data->status_publish) == '0' ? 'selected' : '' }}>Not Publish</option>
                                     </select>
+                                    {{-- tampilkan pesan jika ada error --}}
+                                    @error('status_publish')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
 

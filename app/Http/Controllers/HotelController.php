@@ -22,7 +22,7 @@ class HotelController extends Controller
             ->orderBy('hotels.nama_hotel', 'ASC')
             ->get(); // SELECT hotels.*, kotas.nama_kota FROM hotels JOIN kotas ON kotas.id = hotels.kota_id ORDER BY hotels.nama_hotel ASC
         
-        $data2 = Hotel::orderBy('nama_hotel','ASC')->get(); // SELECT * FROM hotels JOIN kotas ON kotas.id = hotels.kota_id ORDER BY hotels.nama_hotel ASC
+        $data2 = Hotel::orderBy('nama_hotel','ASC')->get(); // SELECT * FROM hotels ORDER BY nama_hotel ASC
 
         return view('hotel.index', [
             'data' => $data,
